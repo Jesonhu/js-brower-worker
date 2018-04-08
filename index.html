@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS 浏览器多线程测试</title>
+</head>
+
+<body>
+  <input type="text" id="show">
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <button id="alert">Alert</button>
+
+  <script>
+    const oInp = document.querySelector('#show');
+    const oStart = document.querySelector('#start');
+    const oStop = document.querySelector('#stop');
+    const oAlert = document.querySelector('#alert');
+    let worker;
+
+    oStart.addEventListener('click', () => {
+      // 开启worker线程
+      worker = new Worker('./js/child_1.js');
+      console.log('worker', worker);
+      // 同worker线程交互
+      worker.onmessage = (e) => {
+        console.log('event', e);
+        oInp.value = e.data;
+      }
+    });
+
+    oStop.addEventListener('click', () => {
+      // 关闭worker线程
+      worker.terminate();
+    });
+
+    oAlert.addEventListener('click', () => {
+      alert('I am a dialog');
+    });
+
+  </script>
+</body>
+
+</html>

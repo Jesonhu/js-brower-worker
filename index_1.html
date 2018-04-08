@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS 浏览器单线程测试</title>
+</head>
+
+<body>
+  <input type="text" id="show">
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <button id="alert">Alert</button>
+
+  <script>
+    const oInp = document.querySelector('#show');
+    const oStart = document.querySelector('#start');
+    const oStop = document.querySelector('#stop');
+    const oAlert = document.querySelector('#alert');
+    let i = 0;
+    let timer;
+
+    oStart.addEventListener('click', () => {
+      timer = setInterval(mainFunc, 1000);
+    });
+
+    oStop.addEventListener('click', () => {
+      clearInterval(timer);
+    });
+
+    oAlert.addEventListener('click', () => {
+      alert('I am a dialog');
+    });
+
+    function mainFunc() {
+      i++;
+      oInp.value = i;
+    }
+    
+  </script>
+</body>
+
+</html>
