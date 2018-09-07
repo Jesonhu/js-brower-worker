@@ -16,5 +16,8 @@
 ![单线程效果展示](./img/worker_2.gif)
 
 ## 参考文档
-[haodawang](https://www.cnblogs.com/haodawang/articles/5850822.html)
-
++ [haodawang](https://www.cnblogs.com/haodawang/articles/5850822.html)
++ [Web Worker 使用教程](http://www.ruanyifeng.com/blog/2018/07/web-worker.html)
++ [Worker-MDN-en](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
++ [ng2-webworker-dynamic](https://github.com/angular/angular/tree/master/packages/platform-webworker-dynamic)
++ [ng2-platform-webworker](https://github.com/angular/angular/tree/master/packages/platform-webworker)
